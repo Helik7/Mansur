@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wargaming Style Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0b0c10;
+            color: #c5c6c7;
+            overflow-x: hidden;
+        }
+
+        /* Шапка сайта (Navbar) */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(11, 12, 16, 0.95);
+            border-bottom: 1px solid #1f2833;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 900;
+            color: #ffffff;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: #ff4500;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #c5c6c7;
+            font-weight: 600;
+            font-size: 14px;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        nav ul li a:hover {
+            color: #ff4500;
+        }
+
+        .auth-btn {
+            background-color: #ff4500;
+            color: #ffffff;
+            border: none;
+            padding: 10px 25px;
+            font-weight: 700;
+            font-size: 13px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+        }
+
+        .auth-btn:hover {
+            background-color: #e03d00;
+        }
+
+        /* Главный баннер (Hero Section) */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(11, 12, 16, 0.6), rgba(11, 12, 16, 0.9)), 
+                        url('https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1920&auto=format&fit=crop') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 54px;
+            font-weight: 900;
+            color: #ffffff;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 700px;
+            margin-bottom: 30px;
+            color: #a0a5ad;
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, #ff4500 0%, #ff8c00 100%);
+            color: #ffffff;
+            padding: 15px 40px;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 69, 0, 0.4);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            clip-path: polygon(5% 0, 100% 0, 95% 100%, 0% 100%);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 69, 0, 0.6);
+        }
+
+        /* Секция игр */
+        .games-section {
+            padding: 80px 50px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            border-left: 5px solid #ff4500;
+            padding-left: 15px;
+            color: #ffffff;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .game-card {
+            background-color: #1a1c23;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid #232733;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .game-card:hover {
+            transform: translateY(-8px);
+            border-color: #ff4500;
+        }
+
+        .game-img {
+            height: 200px;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .game-info {
+            padding: 20px;
+        }
+
+        .game-info h3 {
+            font-size: 20px;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .game-info p {
+            font-size: 14px;
+            color: #8c92a4;
+            margin-bottom: 20px;
+        }
+
+        .game-link {
+            color: #ff4500;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 13px;
+            transition: color 0.2s;
+        }
+
+        .game-link:hover {
+            color: #ff8c00;
+        }
+
+        /* Футер */
+        footer {
+            background-color: #060709;
+            border-top: 1px solid #1f2833;
+            padding: 40px 50px;
+            text-align: center;
+            color: #666c7d;
+            font-size: 13px;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка -->
+    <header>
+        <div class="logo">Wargaming<span>.net</span></div>
+        <nav>
+            <ul>
+                <li><a href="#">Игры</a></li>
+                <li><a href="#">Новости</a></li>
+                <li><a href="#">Киберспорт</a></li>
+                <li><a href="#">Сообщество</a></li>
+                <li><a href="#">Поддержка</a></li>
+            </ul>
+        </nav>
+        <button class="auth-btn">Войти</button>
+    </header>
+
+    <!-- Главный экран -->
+    <section class="hero">
+        <h1>Сражайся на виртуальных полях</h1>
+        <p>Эпические многопользовательские онлайн-игры про технику и сражения. Объединяйтесь в кланы и побеждайте!</p>
+        <button class="cta-btn">Играть бесплатно</button>
+    </section>
+
+    <!-- Секция с играми -->
+    <section class="games-section">
+        <h2 class="section-title">Наши игры</h2>
+        <div class="games-grid">
+            <!-- Карточка 1 -->
+            <div class="game-card">
+                <div class="game-img" style="background-image: url('https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?q=80&w=600&auto=format&fit=crop');"></div>
+                <div class="game-info">
+                    <h3>World of Tanks</h3>
+                    <p>Легендарный командный онлайн-экшен, посвященный бронированным машинам середины XX века.</p>
+                    <a href="#" class="game-link">Узнать больше &rarr;</a>
+                </div>
+            </div>
+            <!-- Карточка 2 -->
+            <div class="game-card">
+                <div class="game-img" style="background-image: url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=600&auto=format&fit=crop');"></div>
+                <div class="game-info">
+                    <h3>World of Warships</h3>
+                    <p>Масштабные морские баталии в реальном времени с участием исторических военных кораблей.</p>
+                    <a href="#" class="game-link">Узнать больше &rarr;</a>
+                </div>
+            </div>
+            <!-- Карточка 3 -->
+            <div class="game-card">
+                <div class="game-img" style="background-image: url('https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?q=80&w=600&auto=format&fit=crop');"></div>
+                <div class="game-info">
+                    <h3>World of Tanks Blitz</h3>
+                    <p>Динамичный мобильный и ПК-экшен про танковые сражения 7 на 7 в любом месте.</p>
+                    <a href="#" class="game-link">Узнать больше &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer>
+        <p>&copy; 2026 Wargaming.net. Все права защищены.</p>
+        <p>Использование материалов сайта разрешено только при условии установки активной ссылки.</p>
+    </footer>
+
+</body>
+</html>
