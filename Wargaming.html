@@ -12,6 +12,10 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Montserrat', sans-serif;
             background-color: #0b0c10;
@@ -66,6 +70,7 @@
         }
 
         .auth-btn {
+            display: inline-block;
             background-color: #ff4500;
             color: #ffffff;
             border: none;
@@ -73,6 +78,7 @@
             font-weight: 700;
             font-size: 13px;
             text-transform: uppercase;
+            text-decoration: none;
             cursor: pointer;
             transition: background 0.3s ease;
             clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
@@ -113,12 +119,14 @@
         }
 
         .cta-btn {
+            display: inline-block;
             background: linear-gradient(135deg, #ff4500 0%, #ff8c00 100%);
             color: #ffffff;
             padding: 15px 40px;
             font-size: 16px;
             font-weight: 700;
             text-transform: uppercase;
+            text-decoration: none;
             border: none;
             cursor: pointer;
             box-shadow: 0 4px 15px rgba(255, 69, 0, 0.4);
@@ -146,6 +154,25 @@
             border-left: 5px solid #ff4500;
             padding-left: 15px;
             color: #ffffff;
+        }
+
+        .info-section {
+            padding: 80px 50px;
+            max-width: 1400px;
+            margin: 0 auto;
+            border-top: 1px solid #1f2833;
+            scroll-margin-top: 90px;
+        }
+
+        .games-section {
+            scroll-margin-top: 90px;
+        }
+
+        .info-section p {
+            font-size: 16px;
+            color: #a0a5ad;
+            line-height: 1.7;
+            max-width: 900px;
         }
 
         .games-grid {
@@ -225,25 +252,25 @@
         <div class="logo">Wargaming<span>.net</span></div>
         <nav>
             <ul>
-                <li><a href="#">Игры</a></li>
-                <li><a href="#">Новости</a></li>
-                <li><a href="#">Киберспорт</a></li>
-                <li><a href="#">Сообщество</a></li>
-                <li><a href="#">Поддержка</a></li>
+                <li><a href="#games">Игры</a></li>
+                <li><a href="#news">Новости</a></li>
+                <li><a href="#esports">Киберспорт</a></li>
+                <li><a href="#community">Сообщество</a></li>
+                <li><a href="#support">Поддержка</a></li>
             </ul>
         </nav>
-        <button class="auth-btn">Войти</button>
+        <a href="https://eu.wargaming.net/id/signin/" class="auth-btn" target="_blank" rel="noopener noreferrer">Войти</a>
     </header>
 
     <!-- Главный экран -->
     <section class="hero">
         <h1>Сражайся на виртуальных полях</h1>
         <p>Эпические многопользовательские онлайн-игры про технику и сражения. Объединяйтесь в кланы и побеждайте!</p>
-        <button class="cta-btn">Играть бесплатно</button>
+        <a href="https://worldoftanks.eu/ru/game/download/" class="cta-btn" target="_blank" rel="noopener noreferrer">Играть бесплатно</a>
     </section>
 
     <!-- Секция с играми -->
-    <section class="games-section">
+    <section class="games-section" id="games">
         <h2 class="section-title">Наши игры</h2>
         <div class="games-grid">
             <!-- Карточка 1 -->
@@ -252,7 +279,7 @@
                 <div class="game-info">
                     <h3>World of Tanks</h3>
                     <p>Легендарный командный онлайн-экшен, посвященный бронированным машинам середины XX века.</p>
-                    <a href="#" class="game-link">Узнать больше &rarr;</a>
+                    <a href="https://worldoftanks.eu/" class="game-link" target="_blank" rel="noopener noreferrer">Узнать больше &rarr;</a>
                 </div>
             </div>
             <!-- Карточка 2 -->
@@ -261,7 +288,7 @@
                 <div class="game-info">
                     <h3>World of Warships</h3>
                     <p>Масштабные морские баталии в реальном времени с участием исторических военных кораблей.</p>
-                    <a href="#" class="game-link">Узнать больше &rarr;</a>
+                    <a href="https://worldofwarships.eu/" class="game-link" target="_blank" rel="noopener noreferrer">Узнать больше &rarr;</a>
                 </div>
             </div>
             <!-- Карточка 3 -->
@@ -270,10 +297,34 @@
                 <div class="game-info">
                     <h3>World of Tanks Blitz</h3>
                     <p>Динамичный мобильный и ПК-экшен про танковые сражения 7 на 7 в любом месте.</p>
-                    <a href="#" class="game-link">Узнать больше &rarr;</a>
+                    <a href="https://wotblitz.com/" class="game-link" target="_blank" rel="noopener noreferrer">Узнать больше &rarr;</a>
                 </div>
             </div>
         </div>
+    </section>
+
+    <!-- Новости -->
+    <section class="info-section" id="news">
+        <h2 class="section-title">Новости</h2>
+        <p>Следите за обновлениями игр, специальными событиями и анонсами на официальном портале. <a href="https://wargaming.net/news/" class="game-link" target="_blank" rel="noopener noreferrer">Все новости &rarr;</a></p>
+    </section>
+
+    <!-- Киберспорт -->
+    <section class="info-section" id="esports">
+        <h2 class="section-title">Киберспорт</h2>
+        <p>Турниры, трансляции и лучшие моменты соревновательных сезонов — всё для фанатов киберспорта. <a href="https://worldoftanks.eu/ru/tournaments/" class="game-link" target="_blank" rel="noopener noreferrer">Турниры &rarr;</a></p>
+    </section>
+
+    <!-- Сообщество -->
+    <section class="info-section" id="community">
+        <h2 class="section-title">Сообщество</h2>
+        <p>Присоединяйтесь к кланам, общайтесь с игроками и находите единомышленников по всему миру. <a href="https://worldoftanks.eu/ru/community/" class="game-link" target="_blank" rel="noopener noreferrer">Перейти в сообщество &rarr;</a></p>
+    </section>
+
+    <!-- Поддержка -->
+    <section class="info-section" id="support">
+        <h2 class="section-title">Поддержка</h2>
+        <p>Нужна помощь с аккаунтом или игрой? Обратитесь в центр поддержки игроков. <a href="https://eu.wargaming.net/support/" class="game-link" target="_blank" rel="noopener noreferrer">Центр поддержки &rarr;</a></p>
     </section>
 
     <!-- Подвал -->
